@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>CodeQuiz</title>
+</head>
+<body>
+    <header><h1>Do You Know Your Code?</h1>
+
+    <nav>
+        <a href="../CodeQuiz/highscores.html">See High Scores!</a>
+    </nav>
+
+    </header>
+
+    <div id="welcome" class="welcomeBoxShow">
+        <h2>Welcome to the JavaScript Code Quiz!</h2>
+        <p>This is a timed, multiple choice quiz. Answer as many questions as you can before time runs out!<br>
+        Answer a question <i>right,</i> and you get a little more time <b>added</b> to the timer. <br>
+        Answer a question <i>wrong,</i> and time will be <b>subtracted</b> from the timer.<br>
+        Hit the start button to begin. Good luck!</p>
+    </div>
+
+    <button id="startBtn">Start!</button>
+
+    <div id="questionBox" class="questionBoxHide">
+        <section id="multipleChoice">
+            <button class="choiceBtn">A</button>
+            <button class="choiceBtn">B</button>
+            <button class="choiceBtn">C</button>
+            <button class="choiceBtn">D</button>
+        </section>
+        <div id="titleQuestions">
+            <h3 id="title"></h3>
+            <section id="questions"></section>
+        </div>
+        
+    </div>
+
+    <aside>
+        <h4 href="../CodeQuiz/highscores.html">High Scores</h4>
+        <section id="highScores">
+            
+        </section>
+    </aside>
+    <script src="./assets/script.js"></script>
+</body>
+</html>

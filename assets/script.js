@@ -47,8 +47,8 @@ setInterval(function(){
 timeLeft = timeLeft-1
 timeEl.textContent = timeLeft
 
-if (timeLeft<25){
-window.location.replace("../CodeQuiz/highscores.html")}
+// if (timeLeft<0){
+// window.location.replace("../CodeQuiz/highscores.html")}
 
 },1000)
 })

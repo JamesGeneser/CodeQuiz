@@ -158,6 +158,19 @@ nav {
     left:0%;
 }
 
+.checkResponseShown{
+    width: 50px;
+    height: 50px;
+    background-color: #8b71b5;
+}
+.checkResponseHidden{
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: #8b71b5;
+}
+
+
 
 
 #highScores{

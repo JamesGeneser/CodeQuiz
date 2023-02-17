@@ -22,8 +22,9 @@ var questionArray = [
 ]
 
 var startBtn = document.querySelector("#startBtn");
-
-
+var timeEl = document.querySelector("#time")
+var score = 0
+var responseBox = document.querySelector("#checker")
 
 //This function is waiting for the startBtn to be clicked
 startBtn.addEventListener("click", function(){ 
@@ -38,6 +39,18 @@ startBtn.addEventListener("click", function(){
     startBtn.setAttribute("class","startBtnHide"); 
 //calls the questionLoader function
     questionLoader()
+    
+})
+startBtn.addEventListener("click", function(){
+var timeLeft = 30
+setInterval(function(){
+timeLeft = timeLeft-1
+timeEl.textContent = timeLeft
+
+if (timeLeft<25){
+window.location.replace("../CodeQuiz/highscores.html")}
+
+},1000)
 })
 
 //current reference to the index position of the questionArray. It begins at 0
@@ -46,67 +59,132 @@ var current = 0
 //////////////////////////////////////////////////////////////////////////
 
 
-//questionLoader function is
+
 function questionLoader(event){
 
-
-    var startTime = 30
-setInterval(function(){
-startTime = startTime-1
-console.log(startTime)
-},1000)
+    var responseBoxVisibility = responseBox.getAttribute
+    console.log(responseBoxVisibility)
+    if (responseBoxVisibility = "checkResponseHidden"){
+        responseBox.removeAttribute
+        responseBox.setAttribute("class","checkResponseShown")
+    }
     
     var currentQuestion = questionArray[current]
     //finds an selects the current question
 
     //takes the title from the current question
     var questionTitle = currentQuestion.title;
-    console.log(questionTitle);
-
+    
     var titlePlacement = document.querySelector("#title");
-    console.log (titlePlacement);
-
+    
     titlePlacement.textContent = questionTitle;
 
 
-    //takes the options from the currentQuestion
+    //question options
     var questionOptions = currentQuestion.options;
-    console.log(questionOptions);
-
+    
     var optionAplacement = document.querySelector("#questionA");
     optionAplacement.textContent = questionOptions[0];
+
+    var optionBplacement = document.querySelector("#questionB");
+    optionBplacement.textContent = questionOptions[1];
+
+    var optionCplacement = document.querySelector("#questionC");
+    optionCplacement.textContent = questionOptions[2];
+
+    var optionDplacement = document.querySelector("#questionD");
+    optionDplacement.textContent = questionOptions[3];
    
 
-    //I want to seperate the question options so that each option is listed on a seperate row (in a column)
 
 
-    current ++;
-
-    checkResponse(event)
-
-    return
-    
-    //userChoice = whatever choiceBtn they picked. Compare button id to 'answer' in currentQuestion. If === true, else false
-    
-}
-
-function checkResponse(event){
-    var input = event.target
-    var correctAnswer = questionArray[current].answer
-
-    if (input.textContent === correctAnswer){
 
 
+    function checkResponse(event){
+        var input = event.target
+        console.log(input)
+        var correctAnswer = questionArray[current].answer
+        console.log(correctAnswer)
+        var right = input.textContent
+        console.log(right)
+        var responseMessage = document.querySelector("#checker")
+        
+
+        if (right === correctAnswer){
+            console.log("correct!")
+            responseMessage.textContent = "Correct"
+            score ++
+        }else { console.log("incorrect")
+            responseMessage.textContent = "Incorrect"
+        }
+        setTimeout(hideResponse, 2000);
+    }
+
+    localStorage.setItem("score",score)
+    console.log(score)
+
+
+
+    function hideResponse(){
+        
+        responseBox.removeAttribute("class")
+        responseBox.setAttribute("class","checkResponseHidden")
+        var responseMessage = document.querySelector("#checker")
+        responseMessage.textContent = ""
     }
 
 
+    
+
+
+    checkResponse(event)
+
+
+
+
+    current ++;
+    questionLoader()
+    
+    
+    //userChoice = whatever choiceBtn they picked. Compare button id to 'answer' in currentQuestion. If === true, else false
+ 
+    
+
+
+
+
+
+
+
+
 
 }
 
 
-var choiceBtn = document.querySelector(".choiceBtn")
 
-choiceBtn.addEventListener("click",questionLoader)
+
+
+
+
+// var choiceBtn = document.querySelectorAll(".choiceBtn")
+
+// console.log(choiceBtn)
+// choiceBtn.addEventListener("click", checkResponse())
+
+
+
+
+var choiceBtnA = document.querySelector("#A")
+choiceBtnA.addEventListener("click",questionLoader)
+
+var choiceBtnB = document.querySelector("#B")
+choiceBtnB.addEventListener("click",questionLoader)
+
+var choiceBtnC = document.querySelector("#C")
+choiceBtnC.addEventListener("click",questionLoader)
+
+var choiceBtnD = document.querySelector("#D")
+choiceBtnD.addEventListener("click",questionLoader)
 
 
 

@@ -1,8 +1,8 @@
 /* Style Sheet */
 :root{
-    --mainColor: #2EC4B6;
-    --dark: #514663;
-    --dark-light: #5e5371;
+    --mainColor: #e4f4f9;
+    --dark: #8b71b5;
+    --dark-light: #b68bc2;
     --highlight: #b3b7ee;
     --white: rgb(235, 255, 249);
 
@@ -79,9 +79,7 @@ nav {
     z-index: 5;
 }
 
-.Blue{
-    color: blue;
-}
+
 
 
 
@@ -137,7 +135,6 @@ nav {
     flex-direction: column;
     width: 84%;
     height: 369px;
-    background-color: green;
 }
 
 
@@ -145,7 +142,7 @@ nav {
 #title{
     height: 16%;
     width: 94%;
-    background-color: blue;
+
     position: relative;
     left: 2%;
 }
@@ -155,7 +152,7 @@ nav {
     flex-direction: column;
     height: 274px;
     width: 96%;
-    background-color: rgb(192, 0, 0);
+
     position: relative;
     top: 9%;
     left:0%;
